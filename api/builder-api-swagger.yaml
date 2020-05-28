@@ -1,0 +1,135 @@
+---
+swagger: "2.0"
+info:
+  description: OpenAPI specification for LogicFM Builder microservice
+  version: 1.0.0
+  title: Builder microservice API
+  contact:
+    email: ahamtat108@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+consumes:
+  - application/json
+produces:
+  - application/json
+schemes:
+  - http
+#  - https
+paths:
+  /info:
+    get:
+      summary: get microservice info
+      description: |
+        Endpoint gets the current version of Builder microservice
+      tags:
+        - info
+      operationId: get
+      parameters: []
+      responses:
+        200:
+          description: displays microservice's name and version
+          schema:
+            $ref: '#/definitions/info'
+        default:
+          description: error
+          schema:
+            $ref: "#/definitions/error"
+  /rule/add/{musrvId}:
+    parameters:
+      - name: musrvId
+        type: integer
+        format: int64
+        in: path
+        required: true
+    post:
+      summary: build rule and query structures
+      description: |
+        Endpoint is used to generate microservice rule and query structures
+      tags:
+        - rule
+      operationId: addNew
+      parameters:
+        - name: rule
+          in: body
+          schema:
+            $ref: "#/definitions/rule"
+      responses:
+        201:
+          description: Created
+        default:
+          description: error
+          schema:
+            $ref: "#/definitions/error"
+  /rules/{id}:
+    parameters:
+      - name: id
+        type: integer
+        format: int64
+        in: path
+        required: true
+    put:
+      tags:
+        - rule
+      operationId: update
+      parameters:
+        - name: rule
+          in: body
+          schema:
+            $ref: "#/definitions/rule"
+      responses:
+        200:
+          description: OK
+        default:
+          description: error
+          schema:
+            $ref: "#/definitions/error"
+    delete:
+      tags:
+        - rule
+      operationId: delete
+      responses:
+        204:
+          description: Deleted
+        default:
+          description: error
+          schema:
+            $ref: "#/definitions/error"
+#    get:
+#  /:
+definitions:
+  info:
+    type: object
+    properties:
+      name:
+        type: string
+        description: Microservice name
+      version:
+        type: string
+        description: Microservice version
+
+  rule:
+    type: object
+    required:
+      - if
+      - then
+    properties:
+      id:
+        type: string
+        format: uuid
+        description: Rule ID
+      if:
+        description: Rule antecedents
+      then:
+        description: Rule consequent
+
+  error:
+    type: object
+    required:
+      - message
+    properties:
+      code:
+        type: integer
+        format: int64
+      message:
+        type: string
