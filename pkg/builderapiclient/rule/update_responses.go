@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"../internal/models"
+	"github.com/ahamtat/logicfm/pkg/models"
 )
 
 // UpdateReader is a Reader for the Update structure.

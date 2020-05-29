@@ -4,7 +4,7 @@ package restapi
 
 import (
 	"crypto/tls"
-	"github.com/ahamtat/logicfm/internal/models"
+	"github.com/ahamtat/logicfm/pkg/models"
 	"github.com/ahamtat/logicfm/pkg/version"
 	"net/http"
 

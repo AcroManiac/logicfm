@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 
-	"github.com/ahamtat/logicfm/internal/models"
+	"../pkg/models"
 )
 
 // NewAddNewParams creates a new AddNewParams object

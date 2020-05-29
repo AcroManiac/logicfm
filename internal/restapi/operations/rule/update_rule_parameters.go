@@ -14,7 +14,7 @@ import (
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 
-	"github.com/ahamtat/logicfm/internal/models"
+	"github.com/ahamtat/logicfm/pkg/models"
 )
 
 // NewUpdateRuleParams creates a new UpdateRuleParams object
