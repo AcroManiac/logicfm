@@ -16,7 +16,7 @@ import (
 // GetOKCode is the HTTP code returned for type GetOK
 const GetOKCode int = 200
 
-/*GetOK displays microservice's name and version
+/*GetOK displays application name and release info
 
 swagger:response getOK
 */

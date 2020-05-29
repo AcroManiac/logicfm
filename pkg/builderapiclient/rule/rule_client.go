@@ -37,7 +37,7 @@ type ClientService interface {
 /*
   AddNew builds rule and query structures
 
-  Endpoint is used to generate microservice rule and query structures
+  Endpoint used to generate rule and query structures
 
 */
 func (a *Client) AddNew(params *AddNewParams) (*AddNewCreated, error) {

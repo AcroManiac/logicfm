@@ -33,7 +33,7 @@ func NewAddNew(ctx *middleware.Context, handler AddNewHandler) *AddNew {
 
 build rule and query structures
 
-Endpoint is used to generate microservice rule and query structures
+Endpoint used to generate rule and query structures
 
 
 */

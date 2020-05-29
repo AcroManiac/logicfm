@@ -4,6 +4,8 @@ package restapi
 
 import (
 	"crypto/tls"
+	"github.com/ahamtat/logicfm/internal/models"
+	"github.com/ahamtat/logicfm/pkg/version"
 	"net/http"
 
 	"github.com/go-openapi/errors"
@@ -47,7 +49,14 @@ func configureAPI(api *operations.BuilderapiAPI) http.Handler {
 	}
 	if api.InfoGetHandler == nil {
 		api.InfoGetHandler = info.GetHandlerFunc(func(params info.GetParams) middleware.Responder {
-			return middleware.NotImplemented("operation info.Get has not yet been implemented")
+			return info.NewGetInfoOK().WithPayload(&models.Info{
+				Branch:        version.Branch,
+				Commit:        version.Commit,
+				Date:          version.Date,
+				Name:          "LogicFM Builder API",
+				Release:       version.Release,
+				RepositoryURL: version.Repo,
+			})
 		})
 	}
 	if api.RuleUpdateHandler == nil {

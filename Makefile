@@ -16,11 +16,11 @@ endif
 HAS_LINT := $(shell command -v golangci-lint;)
 
 LDFLAGS = "-s -w \
-	-X $(PROJECT)/pkg/version.RELEASE=$(RELEASE) \
-	-X $(PROJECT)/pkg/version.DATE=$(RELEASE_DATE) \
-	-X $(PROJECT)/pkg/version.REPO=$(REPO_INFO) \
-	-X $(PROJECT)/pkg/version.COMMIT=$(REPO_COMMIT) \
-	-X $(PROJECT)/pkg/version.BRANCH=$(REPO_BRANCH)"
+	-X $(PROJECT)/pkg/version.Release=$(RELEASE) \
+	-X $(PROJECT)/pkg/version.Date=$(RELEASE_DATE) \
+	-X $(PROJECT)/pkg/version.Repo=$(REPO_INFO) \
+	-X $(PROJECT)/pkg/version.Commit=$(REPO_COMMIT) \
+	-X $(PROJECT)/pkg/version.Branch=$(REPO_BRANCH)"
 
 GO_PACKAGES=$(shell go list $(PROJECT)/...)
 

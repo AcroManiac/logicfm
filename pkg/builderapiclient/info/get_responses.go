@@ -48,7 +48,7 @@ func NewGetOK() *GetOK {
 
 /*GetOK handles this case with default header values.
 
-displays microservice's name and version
+displays application name and release info
 */
 type GetOK struct {
 	Payload *models.Info

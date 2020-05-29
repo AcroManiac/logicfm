@@ -21,14 +21,14 @@ paths:
     get:
       summary: get microservice info
       description: |
-        Endpoint gets the current version of Builder microservice
+        Endpoint gets the application name and release info
       tags:
         - info
       operationId: get
       parameters: []
       responses:
         200:
-          description: displays microservice's name and version
+          description: displays application name and release info
           schema:
             $ref: '#/definitions/info'
         default:
@@ -45,7 +45,7 @@ paths:
     post:
       summary: build rule and query structures
       description: |
-        Endpoint is used to generate microservice rule and query structures
+        Endpoint used to generate rule and query structures
       tags:
         - rule
       operationId: addNew
@@ -103,10 +103,22 @@ definitions:
     properties:
       name:
         type: string
-        description: Microservice name
-      version:
+        description: Application name
+      release:
         type: string
-        description: Microservice version
+        description: Release version
+      date:
+        type: string
+        description: Release date
+      repositoryUrl:
+        type: string
+        description: Git repository URL
+      commit:
+        type: string
+        description: SHA from git
+      branch:
+        type: string
+        description: Deployed git branch
 
   rule:
     type: object

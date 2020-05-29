@@ -15,11 +15,23 @@ import (
 // swagger:model info
 type Info struct {
 
-	// Microservice name
+	// Deployed git branch
+	Branch string `json:"branch,omitempty"`
+
+	// SHA from git
+	Commit string `json:"commit,omitempty"`
+
+	// Release date
+	Date string `json:"date,omitempty"`
+
+	// Application name
 	Name string `json:"name,omitempty"`
 
-	// Microservice version
-	Version string `json:"version,omitempty"`
+	// Release version
+	Release string `json:"release,omitempty"`
+
+	// Git repository URL
+	RepositoryURL string `json:"repositoryUrl,omitempty"`
 }
 
 // Validate validates this info

@@ -43,7 +43,7 @@ func init() {
   "paths": {
     "/info": {
       "get": {
-        "description": "Endpoint gets the current version of Builder microservice\n",
+        "description": "Endpoint gets the application name and release info\n",
         "tags": [
           "info"
         ],
@@ -51,7 +51,7 @@ func init() {
         "operationId": "get",
         "responses": {
           "200": {
-            "description": "displays microservice's name and version",
+            "description": "displays application name and release info",
             "schema": {
               "$ref": "#/definitions/info"
             }
@@ -67,7 +67,7 @@ func init() {
     },
     "/rule/add/{musrvId}": {
       "post": {
-        "description": "Endpoint is used to generate microservice rule and query structures\n",
+        "description": "Endpoint used to generate rule and query structures\n",
         "tags": [
           "rule"
         ],
@@ -178,12 +178,28 @@ func init() {
     "info": {
       "type": "object",
       "properties": {
-        "name": {
-          "description": "Microservice name",
+        "branch": {
+          "description": "Deployed git branch",
           "type": "string"
         },
-        "version": {
-          "description": "Microservice version",
+        "commit": {
+          "description": "SHA from git",
+          "type": "string"
+        },
+        "date": {
+          "description": "Release date",
+          "type": "string"
+        },
+        "name": {
+          "description": "Application name",
+          "type": "string"
+        },
+        "release": {
+          "description": "Release version",
+          "type": "string"
+        },
+        "repositoryUrl": {
+          "description": "Git repository URL",
           "type": "string"
         }
       }
@@ -236,7 +252,7 @@ func init() {
   "paths": {
     "/info": {
       "get": {
-        "description": "Endpoint gets the current version of Builder microservice\n",
+        "description": "Endpoint gets the application name and release info\n",
         "tags": [
           "info"
         ],
@@ -244,7 +260,7 @@ func init() {
         "operationId": "get",
         "responses": {
           "200": {
-            "description": "displays microservice's name and version",
+            "description": "displays application name and release info",
             "schema": {
               "$ref": "#/definitions/info"
             }
@@ -260,7 +276,7 @@ func init() {
     },
     "/rule/add/{musrvId}": {
       "post": {
-        "description": "Endpoint is used to generate microservice rule and query structures\n",
+        "description": "Endpoint used to generate rule and query structures\n",
         "tags": [
           "rule"
         ],
@@ -371,12 +387,28 @@ func init() {
     "info": {
       "type": "object",
       "properties": {
-        "name": {
-          "description": "Microservice name",
+        "branch": {
+          "description": "Deployed git branch",
           "type": "string"
         },
-        "version": {
-          "description": "Microservice version",
+        "commit": {
+          "description": "SHA from git",
+          "type": "string"
+        },
+        "date": {
+          "description": "Release date",
+          "type": "string"
+        },
+        "name": {
+          "description": "Application name",
+          "type": "string"
+        },
+        "release": {
+          "description": "Release version",
+          "type": "string"
+        },
+        "repositoryUrl": {
+          "description": "Git repository URL",
           "type": "string"
         }
       }

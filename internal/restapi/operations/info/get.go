@@ -33,7 +33,7 @@ func NewGet(ctx *middleware.Context, handler GetHandler) *Get {
 
 get microservice info
 
-Endpoint gets the current version of Builder microservice
+Endpoint gets the application name and release info
 
 
 */

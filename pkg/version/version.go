@@ -3,14 +3,14 @@
 package version
 
 var (
-	// RELEASE returns the release version
-	RELEASE = "UNKNOWN"
-	// DATE returns the release date
-	DATE = "UNKNOWN"
-	// REPO returns the git repository URL
-	REPO = "UNKNOWN"
-	// COMMIT returns the short sha from git
-	COMMIT = "UNKNOWN"
-	// BRANCH returns deployed git brunch
-	BRANCH = "UNKNOWN"
+	// Release returns the release version
+	Release = "UNKNOWN"
+	// Date returns the release date
+	Date = "UNKNOWN"
+	// Repo returns the git repository URL
+	Repo = "UNKNOWN"
+	// Commit returns the short sha from git
+	Commit = "UNKNOWN"
+	// Branch returns deployed git brunch
+	Branch = "UNKNOWN"
 )

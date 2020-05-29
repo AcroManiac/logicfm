@@ -33,7 +33,7 @@ type ClientService interface {
 /*
   Get gets microservice info
 
-  Endpoint gets the current version of Builder microservice
+  Endpoint gets the application name and release info
 
 */
 func (a *Client) Get(params *GetParams) (*GetOK, error) {
