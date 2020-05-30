@@ -19,8 +19,8 @@ import (
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 
-	"github.com/ahamtat/logicfm/internal/restapi/operations/info"
-	"github.com/ahamtat/logicfm/internal/restapi/operations/rule"
+	"github.com/ahamtat/logicfm/internal/api/builder/restapi/operations/info"
+	"github.com/ahamtat/logicfm/internal/api/builder/restapi/operations/rule"
 )
 
 // NewBuilderapiAPI creates a new Builderapi instance

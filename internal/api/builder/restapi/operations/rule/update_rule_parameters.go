@@ -14,21 +14,21 @@ import (
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 
-	"../pkg/models"
+	"github.com/ahamtat/logicfm/internal/api/builder/models"
 )
 
-// NewUpdateParams creates a new UpdateParams object
+// NewUpdateRuleParams creates a new UpdateRuleParams object
 // no default values defined in spec.
-func NewUpdateParams() UpdateParams {
+func NewUpdateRuleParams() UpdateRuleParams {
 
-	return UpdateParams{}
+	return UpdateRuleParams{}
 }
 
-// UpdateParams contains all the bound params for the update operation
+// UpdateRuleParams contains all the bound params for the update rule operation
 // typically these are obtained from a http.Request
 //
-// swagger:parameters update
-type UpdateParams struct {
+// swagger:parameters updateRule
+type UpdateRuleParams struct {
 
 	// HTTP Request Object
 	HTTPRequest *http.Request `json:"-"`
@@ -47,8 +47,8 @@ type UpdateParams struct {
 // BindRequest both binds and validates a request, it assumes that complex things implement a Validatable(strfmt.Registry) error interface
 // for simple values it will use straight method calls.
 //
-// To ensure default values, the struct must have been initialized with NewUpdateParams() beforehand.
-func (o *UpdateParams) BindRequest(r *http.Request, route *middleware.MatchedRoute) error {
+// To ensure default values, the struct must have been initialized with NewUpdateRuleParams() beforehand.
+func (o *UpdateRuleParams) BindRequest(r *http.Request, route *middleware.MatchedRoute) error {
 	var res []error
 
 	o.HTTPRequest = r
@@ -81,7 +81,7 @@ func (o *UpdateParams) BindRequest(r *http.Request, route *middleware.MatchedRou
 }
 
 // bindID binds and validates parameter ID from path.
-func (o *UpdateParams) bindID(rawData []string, hasKey bool, formats strfmt.Registry) error {
+func (o *UpdateRuleParams) bindID(rawData []string, hasKey bool, formats strfmt.Registry) error {
 	var raw string
 	if len(rawData) > 0 {
 		raw = rawData[len(rawData)-1]

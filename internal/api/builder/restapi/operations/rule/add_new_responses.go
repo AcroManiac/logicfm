@@ -10,7 +10,7 @@ import (
 
 	"github.com/go-openapi/runtime"
 
-	"../pkg/models"
+	"github.com/ahamtat/logicfm/internal/api/builder/models"
 )
 
 // AddNewCreatedCode is the HTTP code returned for type AddNewCreated

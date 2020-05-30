@@ -4,7 +4,7 @@ package restapi
 
 import (
 	"crypto/tls"
-	"github.com/ahamtat/logicfm/pkg/models"
+	"github.com/ahamtat/logicfm/internal/api/builder/models"
 	"github.com/ahamtat/logicfm/pkg/version"
 	"net/http"
 
@@ -12,9 +12,9 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/runtime/middleware"
 
-	"github.com/ahamtat/logicfm/internal/restapi/operations"
-	"github.com/ahamtat/logicfm/internal/restapi/operations/info"
-	"github.com/ahamtat/logicfm/internal/restapi/operations/rule"
+	"github.com/ahamtat/logicfm/internal/api/builder/restapi/operations"
+	"github.com/ahamtat/logicfm/internal/api/builder/restapi/operations/info"
+	"github.com/ahamtat/logicfm/internal/api/builder/restapi/operations/rule"
 )
 
 //go:generate swagger generate server --target ../../internal --name Builderapi --spec ../../api/builder-api-swagger.yaml --exclude-main
