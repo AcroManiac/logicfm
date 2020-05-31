@@ -10,7 +10,7 @@ import (
 
 	"github.com/go-openapi/runtime"
 
-	"github.com/ahamtat/logicfm/internal/api/builder/models"
+	"github.com/ahamtat/logicfm/internal/adapters/swagger/builder/models"
 )
 
 // DeleteRuleNoContentCode is the HTTP code returned for type DeleteRuleNoContent

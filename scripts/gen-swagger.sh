@@ -8,6 +8,6 @@ if [ $retVal -ne 0 ]; then
 else
 #  swagger generate client -A builderapi -f ../api/builder-api-swagger.yaml -t ../pkg/ \
 #    --client-package=builderapiclient
-  swagger generate server -f ../api/builder-api-swagger.yaml -t ../internal/api/builder/ \
-    --exclude-main # -A builderapi
+  swagger generate server -A builderapi -f ../api/builder-api-swagger.yaml -t ../internal/adapters/swagger/builder/ \
+    --exclude-main
 fi

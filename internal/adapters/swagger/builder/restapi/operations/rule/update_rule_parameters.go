@@ -14,21 +14,21 @@ import (
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 
-	"github.com/ahamtat/logicfm/internal/api/builder/models"
+	"github.com/ahamtat/logicfm/internal/adapters/swagger/builder/models"
 )
 
-// NewAddNewRuleParams creates a new AddNewRuleParams object
+// NewUpdateRuleParams creates a new UpdateRuleParams object
 // no default values defined in spec.
-func NewAddNewRuleParams() AddNewRuleParams {
+func NewUpdateRuleParams() UpdateRuleParams {
 
-	return AddNewRuleParams{}
+	return UpdateRuleParams{}
 }
 
-// AddNewRuleParams contains all the bound params for the add new rule operation
+// UpdateRuleParams contains all the bound params for the update rule operation
 // typically these are obtained from a http.Request
 //
-// swagger:parameters addNewRule
-type AddNewRuleParams struct {
+// swagger:parameters updateRule
+type UpdateRuleParams struct {
 
 	// HTTP Request Object
 	HTTPRequest *http.Request `json:"-"`
@@ -37,7 +37,7 @@ type AddNewRuleParams struct {
 	  Required: true
 	  In: path
 	*/
-	MusrvID int64
+	ID int64
 	/*
 	  In: body
 	*/
@@ -47,14 +47,14 @@ type AddNewRuleParams struct {
 // BindRequest both binds and validates a request, it assumes that complex things implement a Validatable(strfmt.Registry) error interface
 // for simple values it will use straight method calls.
 //
-// To ensure default values, the struct must have been initialized with NewAddNewRuleParams() beforehand.
-func (o *AddNewRuleParams) BindRequest(r *http.Request, route *middleware.MatchedRoute) error {
+// To ensure default values, the struct must have been initialized with NewUpdateRuleParams() beforehand.
+func (o *UpdateRuleParams) BindRequest(r *http.Request, route *middleware.MatchedRoute) error {
 	var res []error
 
 	o.HTTPRequest = r
 
-	rMusrvID, rhkMusrvID, _ := route.Params.GetOK("musrvId")
-	if err := o.bindMusrvID(rMusrvID, rhkMusrvID, route.Formats); err != nil {
+	rID, rhkID, _ := route.Params.GetOK("id")
+	if err := o.bindID(rID, rhkID, route.Formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -80,8 +80,8 @@ func (o *AddNewRuleParams) BindRequest(r *http.Request, route *middleware.Matche
 	return nil
 }
 
-// bindMusrvID binds and validates parameter MusrvID from path.
-func (o *AddNewRuleParams) bindMusrvID(rawData []string, hasKey bool, formats strfmt.Registry) error {
+// bindID binds and validates parameter ID from path.
+func (o *UpdateRuleParams) bindID(rawData []string, hasKey bool, formats strfmt.Registry) error {
 	var raw string
 	if len(rawData) > 0 {
 		raw = rawData[len(rawData)-1]
@@ -92,9 +92,9 @@ func (o *AddNewRuleParams) bindMusrvID(rawData []string, hasKey bool, formats st
 
 	value, err := swag.ConvertInt64(raw)
 	if err != nil {
-		return errors.InvalidType("musrvId", "path", "int64", raw)
+		return errors.InvalidType("id", "path", "int64", raw)
 	}
-	o.MusrvID = value
+	o.ID = value
 
 	return nil
 }

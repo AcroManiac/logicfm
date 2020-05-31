@@ -4,17 +4,18 @@ package restapi
 
 import (
 	"crypto/tls"
-	"github.com/ahamtat/logicfm/internal/api/builder/models"
-	"github.com/ahamtat/logicfm/pkg/version"
 	"net/http"
+
+	"github.com/ahamtat/logicfm/internal/adapters/swagger/builder/models"
+	"github.com/ahamtat/logicfm/pkg/version"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/runtime/middleware"
 
-	"github.com/ahamtat/logicfm/internal/api/builder/restapi/operations"
-	"github.com/ahamtat/logicfm/internal/api/builder/restapi/operations/info"
-	"github.com/ahamtat/logicfm/internal/api/builder/restapi/operations/rule"
+	"github.com/ahamtat/logicfm/internal/adapters/swagger/builder/restapi/operations"
+	"github.com/ahamtat/logicfm/internal/adapters/swagger/builder/restapi/operations/info"
+	"github.com/ahamtat/logicfm/internal/adapters/swagger/builder/restapi/operations/rule"
 )
 
 //go:generate swagger generate server --target ../../internal --name Builderapi --spec ../../api/builder-api-swagger.yaml --exclude-main
@@ -47,18 +48,16 @@ func configureAPI(api *operations.BuilderapiAPI) http.Handler {
 			return middleware.NotImplemented("operation rule.Delete has not yet been implemented")
 		})
 	}
-	if api.InfoGetHandler == nil {
-		api.InfoGetHandler = info.GetHandlerFunc(func(params info.GetParams) middleware.Responder {
-			return info.NewGetInfoOK().WithPayload(&models.Info{
-				Branch:        version.Branch,
-				Commit:        version.Commit,
-				Date:          version.Date,
-				Name:          "LogicFM Builder API",
-				Release:       version.Release,
-				RepositoryURL: version.Repo,
-			})
+	api.InfoGetHandler = info.GetHandlerFunc(func(params info.GetParams) middleware.Responder {
+		return info.NewGetInfoOK().WithPayload(&models.Info{
+			Branch:        version.Branch,
+			Commit:        version.Commit,
+			Date:          version.Date,
+			Name:          "LogicFM Builder API",
+			Release:       version.Release,
+			RepositoryURL: version.Repo,
 		})
-	}
+	})
 	if api.RuleUpdateHandler == nil {
 		api.RuleUpdateHandler = rule.UpdateHandlerFunc(func(params rule.UpdateParams) middleware.Responder {
 			return middleware.NotImplemented("operation rule.Update has not yet been implemented")
