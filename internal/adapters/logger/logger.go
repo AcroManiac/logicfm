@@ -16,18 +16,12 @@ var once sync.Once
 // This would be called from a main method when the application starts up
 // This function would ideally, take zap configuration, but is left out
 // in favor of simplicity using the example logger.
-func Init(logLevel, filePath string) {
+func Init(logLevel string) {
 	// once ensures the singleton is initialized only once
 	once.Do(func() {
 		config := zap.NewProductionConfig()
 		config.OutputPaths = []string{"stderr"}
-		if len(filePath) > 0 {
-			config.OutputPaths = append(config.OutputPaths, filePath)
-		}
 		config.ErrorOutputPaths = []string{"stderr"}
-		if len(filePath) > 0 {
-			config.ErrorOutputPaths = append(config.ErrorOutputPaths, filePath)
-		}
 		config.EncoderConfig = zapcore.EncoderConfig{
 			MessageKey: "message",
 
@@ -36,9 +30,6 @@ func Init(logLevel, filePath string) {
 
 			TimeKey:    "time",
 			EncodeTime: zapcore.ISO8601TimeEncoder,
-
-			//CallerKey:    "caller",
-			//EncodeCaller: zapcore.ShortCallerEncoder,
 		}
 
 		var level zapcore.Level
