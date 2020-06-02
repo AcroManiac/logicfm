@@ -11,6 +11,7 @@ require (
 	github.com/go-openapi/swag v0.19.9
 	github.com/go-openapi/validate v0.19.8
 	github.com/jessevdk/go-flags v1.4.0
+	go.uber.org/fx v1.12.0
 	go.uber.org/zap v1.15.0
 	golang.org/x/net v0.0.0-20200520182314-0ba52f642ac2
 )
